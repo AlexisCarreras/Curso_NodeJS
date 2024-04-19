@@ -1,11 +1,20 @@
-require("dotenv").config();
-const { get } = require("env-var");
+// *** Versiones anteriores ***
+// require("dotenv").config();
+// const { get } = require("env-var");
 
-const envs = {
-  PORT: get("PORT").required().asPortNumber(),
-  PUBLIC_PATH: get("PUBLIC_PATH").default("public").asString(),
+// *** EcmaScript 6 ***
+import env from "dotenv";
+import envvar from "env-var";
+
+env.config();
+
+// *** EcmaScript 6 ***
+export const envs = {
+  PORT: envvar.get("PORT").required().asPortNumber(),
+  PUBLIC_PATH: envvar.get("PUBLIC_PATH").default("public").asString(),
 };
 
-module.exports = {
-  envs,
-};
+// *** Versiones anteriores ***
+// module.exports = {
+//   envs,
+// };
